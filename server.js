@@ -4,7 +4,7 @@ const app = express();
 const PORT = process.env.PORT;
 const cors = require('cors');
 const superagent = require('superagent');
-const token = $process.env.GITHUB_TOKEN
+const token = process.env.GITHUB_TOKEN
 
 app.use(express.static('./public'));
 app.use(cors());

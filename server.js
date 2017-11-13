@@ -11,7 +11,6 @@ app.use(cors());
 
 app.get('/github/*', (request, response) => {
   console.log('Routing a gh api request for ', request.params[0])
-  console.log(`authstring: token ${token}`)
   superagent(`https://api.GitHub.com/${request.params[0]}`)
     .set('Authorization',`token ${token}`)
     .then(

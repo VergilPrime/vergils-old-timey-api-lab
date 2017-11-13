@@ -1,3 +1,4 @@
+
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT;
@@ -13,10 +14,10 @@ app.get('/github/*', (request, response) => {
     .set('Authorization',`token $process.env.GITHUB_TOKEN`)
     .then(
       repos => response.send(repos.text),
-      err => response.send(err)
+      err => response.send(`https://api.GitHub.com/${request.params[0]} Request Fail: ${err}`)
     )
 })
-
+// you can do it
 app.get('/', (req, res) => {
   res.sendFile('index.html')
 });

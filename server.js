@@ -13,7 +13,10 @@ app.get('/github/*', (request, response) => {
   superagent(`https://api.GitHub.com/${request.params[0]}`)
     .set('Authorization',`token $process.env.GITHUB_TOKEN`)
     .then(
-      repos => response.send(repos.text),
+      repos => {
+        console.log(repos.text)
+        response.send(repos.text)
+      },
       err => response.send(`https://api.GitHub.com/${request.params[0]} Request Fail: ${err}`)
     )
 })
